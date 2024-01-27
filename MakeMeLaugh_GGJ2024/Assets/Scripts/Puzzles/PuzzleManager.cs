@@ -37,7 +37,10 @@ public class PuzzleManager : MonoBehaviour
 
     private void Start()
     {
-        Queue = StartCoroutine(LevelQueue());
+        if(levelData != null)
+        {
+            Queue = StartCoroutine(LevelQueue());
+        }
     }
 
     IEnumerator LevelQueue()

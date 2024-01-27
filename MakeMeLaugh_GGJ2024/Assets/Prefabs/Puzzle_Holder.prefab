@@ -189,7 +189,17 @@ MonoBehaviour:
   stageCamera: {fileID: 0}
   puzzleCamera: {fileID: 2749455972360144283}
   puzzleObject: {fileID: 1267652612280345177}
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 11400000, guid: bc17a46f1681fdd4d8b207bf9863cefc, type: 2}
+  JuggleUI: {fileID: 0}
+  overlap: {fileID: 0}
+  JuggleKeysUI_Fast: {fileID: 0}
+  JuggleKeysUI_Timing: {fileID: 0}
+  missedInputs: 0
+  Z: {fileID: 6752677722697662153, guid: 6a9935fd05b42f7499576c9bafaabe38, type: 3}
+  X: {fileID: 7239876215188352925, guid: 40030672772af3e4db68fb2995d5a24b, type: 3}
+  C: {fileID: 4755983694053855956, guid: 5f2860418f16e9e4a98069e720561df9, type: 3}
+  FartUI: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1 &102589086886915526
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9001657757700827574
 Transform:
   m_ObjectHideFlags: 0

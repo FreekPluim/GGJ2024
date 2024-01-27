@@ -6,9 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController cc;
     public float speed;
+    public Transform visuals;
 
     float x, y;
-    Vector3 dir;
+    Vector3 lookDir;
 
     void Start()
     {
@@ -20,11 +21,16 @@ public class PlayerMovement : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
 
-        dir = new Vector3(x, 0, y).normalized;
+        lookDir = new Vector3(-y, 0, x).normalized;
     }
 
     private void FixedUpdate()
     {
-        cc.Move(dir * Time.fixedDeltaTime * speed);
+        cc.Move(lookDir * Time.fixedDeltaTime * speed);
+
+        if(x != 0 || y != 0)
+        {
+            visuals.transform.rotation = Quaternion.LookRotation(lookDir);
+        }
     }
 }
