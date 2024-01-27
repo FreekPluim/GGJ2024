@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &976235778216967784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5655473254109488840, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
+  m_PrefabInstance: {fileID: 3120656981604274979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3120656981604274979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -178,8 +183,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5655473254109488840, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3560168611234016120}
   m_SourcePrefab: {fileID: 100100000, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
+--- !u!95 &3560168611234016120
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976235778216967784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c44f40bbb02f5c64c92ab26531c8b13d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5195031222049193264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -188,6 +217,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2487191821364179414, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4468882355788979012, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
+      propertyPath: m_AllowXRRendering
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6904998259047950882, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.2
@@ -231,6 +268,10 @@ PrefabInstance:
     - target: {fileID: 8372890347414117914, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
       propertyPath: m_Name
       value: SceneVisuals
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372890347414117914, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
