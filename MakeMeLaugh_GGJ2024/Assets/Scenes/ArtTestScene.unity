@@ -138,7 +138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalPosition.y
@@ -146,11 +146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalRotation.x
@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalRotation.z
@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3899895641900416775, guid: 67a03c72f7c7de344af2221b9337ab36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -201,7 +201,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c44f40bbb02f5c64c92ab26531c8b13d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -217,6 +217,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 706169690522271026, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2487191821364179414, guid: cdbdd31eaf6b34b4d8d0e954035edb28, type: 3}
       propertyPath: field of view
       value: 90
