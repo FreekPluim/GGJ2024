@@ -55,6 +55,7 @@ public class BallanceBehaviour : MonoBehaviour
         {
             //Failed
             PuzzleManager.instance.FinishedPuzzle(holder);
+            holder.source.PlayOneShot(holder.failSound);
             ballance_Progression.value = 0;
             BalanceFinish();
         }

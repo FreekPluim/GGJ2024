@@ -44,7 +44,7 @@ public class JuggleSO : Puzzle
         if(wrongInputs >= 3)
         {
             wrongInputs = 0;
-            Debug.Log("Wrong");
+            holder.source.PlayOneShot(holder.failSound);
             PuzzleManager.instance.FinishedPuzzle(holder);
         }
     }

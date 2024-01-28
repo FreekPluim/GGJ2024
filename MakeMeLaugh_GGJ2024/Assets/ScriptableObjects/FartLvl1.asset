@@ -15,6 +15,6 @@ MonoBehaviour:
   scoreOnSuccess: 20
   scoreOnFailure: 0
   decreasePerFrame: 5
-  increasePerSpace: 50
+  increasePerSpace: 65
   timeToCompleteInSeconds: 6
   max: 1000

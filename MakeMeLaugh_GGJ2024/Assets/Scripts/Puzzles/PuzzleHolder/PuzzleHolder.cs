@@ -21,6 +21,7 @@ public class PuzzleHolder : MonoBehaviour
 
     public Transform mid;
     public AudioSource source;
+    public AudioClip failSound;
 
     public void SetPuzzle(Puzzle puzzle)
     {

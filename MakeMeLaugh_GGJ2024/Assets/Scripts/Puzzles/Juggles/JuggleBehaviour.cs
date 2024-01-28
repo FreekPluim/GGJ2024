@@ -38,6 +38,7 @@ public class JuggleBehaviour : MonoBehaviour
 
         if(time <= 0)
         {
+            holder.source.PlayOneShot(holder.failSound);
             PuzzleManager.instance.puzzleFinish.Invoke();
         }
     }

@@ -48,6 +48,7 @@ public class FartBehaviour : MonoBehaviour
 
         if(time <= 0)
         {
+            holder.source.PlayOneShot(holder.failSound);
             PuzzleManager.instance.FinishedPuzzle(holder);
         }
     }

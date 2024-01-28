@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52be78822284146429565e5e51510a03, type: 2}
   - {fileID: 11400000, guid: bc17a46f1681fdd4d8b207bf9863cefc, type: 2}
   - {fileID: 11400000, guid: 9e84c196016945841b83e09b71dd4c2b, type: 2}
-  OneStarScore: 100
-  TwoStarScore: 150
-  ThreeStarScore: 200
+  OneStarScore: 40
+  TwoStarScore: 70
+  ThreeStarScore: 140
