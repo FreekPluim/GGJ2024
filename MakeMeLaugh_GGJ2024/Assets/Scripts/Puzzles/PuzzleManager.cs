@@ -48,7 +48,6 @@ public class PuzzleManager : MonoBehaviour
         Queue = StartCoroutine(LevelQueue());
         
     }
-
     public void FinishedPuzzle(PuzzleHolder holder)
     {
         puzzleFinish?.Invoke();

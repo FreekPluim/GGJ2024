@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public Transform visuals;
     public bool inPuzzle;
+    public bool GameStarted;
     public Animator anim;
 
     float x, y;
@@ -33,23 +34,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!inPuzzle)
+        if (GameStarted)
         {
-            cc.Move(lookDir * Time.fixedDeltaTime * speed);
-
-            if(x != 0 || y != 0)
+            if (!inPuzzle)
             {
-                anim.SetBool("isWalking", true);
-                visuals.transform.rotation = Quaternion.LookRotation(lookDir);
+                cc.Move(lookDir * Time.fixedDeltaTime * speed);
+
+                if(x != 0 || y != 0)
+                {
+                    anim.SetBool("isWalking", true);
+                    visuals.transform.rotation = Quaternion.LookRotation(lookDir);
+                }
+                else
+                {
+                    anim.SetBool("isWalking", false);
+                }
             }
             else
             {
                 anim.SetBool("isWalking", false);
             }
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
         }
     }
 }

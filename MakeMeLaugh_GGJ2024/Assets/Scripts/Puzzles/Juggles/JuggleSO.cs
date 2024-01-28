@@ -13,7 +13,7 @@ public class JuggleSO : Puzzle
         KeyCode.X,
         KeyCode.C
     };
-    public int wrongInputs;
+    public int wrongInputs = 0;
 
     public void update(JuggleBehaviour behaviour, PuzzleHolder holder)
     {
@@ -44,6 +44,7 @@ public class JuggleSO : Puzzle
         if(wrongInputs >= 3)
         {
             wrongInputs = 0;
+            Debug.Log("Wrong");
             PuzzleManager.instance.FinishedPuzzle(holder);
         }
     }
@@ -58,6 +59,7 @@ public class JuggleSO : Puzzle
         else
         {
             //TODO: WRONG KEY FEEDBACK;
+            wrongInputs++;
             keyInputs.Dequeue();
         }
         

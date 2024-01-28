@@ -18,6 +18,8 @@ public class FartBehaviour : MonoBehaviour
     public int maxTime = 10;
     int time;
 
+    public AudioClip fart;
+
     private void OnEnable()
     {
         current = 0;
@@ -38,6 +40,7 @@ public class FartBehaviour : MonoBehaviour
         if (current >= puzzle.max)
         {
             //TODO: Play reverb fart sound
+            holder.source.PlayOneShot(fart);
             GameManager.instance.AddPoints(puzzle.scoreOnSuccess);
             GameManager.instance.Success();
             PuzzleManager.instance.FinishedPuzzle(holder);

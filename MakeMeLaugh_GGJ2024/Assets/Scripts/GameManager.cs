@@ -17,15 +17,58 @@ public class GameManager : MonoBehaviour
     public int SuccesfullMinigames;
     public int succesAddition = 10;
 
+    public Animator anim;
+
+    [Header("Audio")]
+    public AudioSource audienceSource;
+    public AudioClip laughter;
+    public AudioSource backgroundMusicSource;
+    public AudioClip GameplayMusic;
+    public AudioClip backgoundMusic;
+
+    public bool InMenu = false;
+    bool current = false;
+
+    public GameObject uiButtons, uiTimer;
+
     private void Start()
     {
+        InMenu = true;
         if (instance != null) Destroy(this);
         else instance = this;
 
         GameTimer = MaxTime;
-        StartCoroutine(timerCo());
     }
 
+    public void OnStartPressed()
+    {
+        PlayerMovement.instance.GameStarted = true;
+        uiButtons.SetActive(false);
+        uiTimer.SetActive(true);
+        anim.SetBool("GameStart", true);
+        InMenu = false;
+    }
+    public void OnQuit()
+    {
+        Application.Quit();
+    }
+
+    public void PlayLaughter()
+    {
+        audienceSource.PlayOneShot(laughter);
+    }
+    void PlayBackground()
+    {
+        backgroundMusicSource.Stop();
+        backgroundMusicSource.clip = backgoundMusic;
+        backgroundMusicSource.Play();
+    }
+    void PlayGameplay()
+    {
+        backgroundMusicSource.Stop();
+        backgroundMusicSource.clip = GameplayMusic;
+        backgroundMusicSource.Play();
+    }
     private void Update()
     {
         GameTimerText.text = $"{GameTimer / 60}:{GameTimer % 60}";
@@ -33,6 +76,7 @@ public class GameManager : MonoBehaviour
         if (GameTimer <= 0)
         {
             //Stop game;
+            InMenu = true;
 
             //TODO: Handle UI Bullshit
             if(points + (succesAddition * SuccesfullMinigames) > levelData.ThreeStarScore)
@@ -53,6 +97,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if(InMenu == false && InMenu != current)
+        {
+            StartCoroutine(timerCo());
+            PlayGameplay();
+            current = InMenu;
+        }
+        if(InMenu == true && InMenu != current)
+        {
+            PlayBackground();
+            current = InMenu;
+        }
     }
 
     IEnumerator timerCo()
@@ -68,10 +123,10 @@ public class GameManager : MonoBehaviour
     {
         this.points += points;
     }
-
     public void Success()
     {
         SuccesfullMinigames++;
+        PlayLaughter();
     }
 
 }

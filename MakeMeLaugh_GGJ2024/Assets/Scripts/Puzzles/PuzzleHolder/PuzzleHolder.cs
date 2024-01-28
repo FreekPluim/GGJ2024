@@ -20,6 +20,7 @@ public class PuzzleHolder : MonoBehaviour
     public BallanceBehaviour BallanceBehaviour;
 
     public Transform mid;
+    public AudioSource source;
 
     public void SetPuzzle(Puzzle puzzle)
     {
