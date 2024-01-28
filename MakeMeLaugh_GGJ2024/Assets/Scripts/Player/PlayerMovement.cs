@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     public CharacterController cc;
     public float speed;
     public Transform visuals;
+    public bool inPuzzle;
+    public Animator anim;
 
     float x, y;
     Vector3 lookDir;
 
     void Start()
     {
+        if (instance != null) { Destroy(this); }
+        else instance = this;
+
         if (cc == null) GetComponent<CharacterController>();
     }
 
@@ -26,11 +33,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        cc.Move(lookDir * Time.fixedDeltaTime * speed);
-
-        if(x != 0 || y != 0)
+        if (!inPuzzle)
         {
-            visuals.transform.rotation = Quaternion.LookRotation(lookDir);
+            cc.Move(lookDir * Time.fixedDeltaTime * speed);
+
+            if(x != 0 || y != 0)
+            {
+                anim.SetBool("isWalking", true);
+                visuals.transform.rotation = Quaternion.LookRotation(lookDir);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
     }
 }

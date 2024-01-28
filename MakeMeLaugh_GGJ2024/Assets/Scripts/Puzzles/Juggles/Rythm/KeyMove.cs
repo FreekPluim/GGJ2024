@@ -21,7 +21,7 @@ public class KeyMove : MonoBehaviour
         {
             if(PlayerPressed == false && !added)
             {
-                holder.missedInputs++;
+                //holder.missedInputs++;
                 added = true;
             }
         }

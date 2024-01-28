@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a497f2c72c888469ba2744d214711a, type: 3}
   m_Name: FartLvl1
   m_EditorClassIdentifier: 
-  decreasePerFrame: 1
-  increasePerSpace: 30
-  timeToCompleteInSeconds: 5
+  scoreOnSuccess: 20
+  scoreOnFailure: 0
+  decreasePerFrame: 5
+  increasePerSpace: 50
+  timeToCompleteInSeconds: 6
   max: 1000

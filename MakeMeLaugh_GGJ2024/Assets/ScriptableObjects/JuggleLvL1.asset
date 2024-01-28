@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12fcd6c1f93bce4c919da7f13960e08, type: 3}
   m_Name: JuggleLvL1
   m_EditorClassIdentifier: 
-  TimingBased: 0
+  scoreOnSuccess: 20
+  scoreOnFailure: 0
   amountOfInputs: 20
   keys: 7a0000007800000063000000
   wrongInputs: 0

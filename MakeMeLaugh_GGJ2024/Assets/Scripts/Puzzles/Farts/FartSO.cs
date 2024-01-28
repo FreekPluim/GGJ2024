@@ -10,17 +10,20 @@ public class FartSO : Puzzle
     public float timeToCompleteInSeconds = 5;
     public int max = 1000;
 
-    public void update(PuzzleHolder holder)
+    public void fixedupdate(FartBehaviour behaviour)
     {
-        if (holder.current < 0) holder.current = 0;
-        if (holder.current > 0)
+        if (behaviour.current < 0) behaviour.current = 0;
+        if (behaviour.current > 0)
         {
-            holder.current -= decreasePerFrame;
+            behaviour.current -= decreasePerFrame;
         }
+    }
 
+    public void update(FartBehaviour behaviour)
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            holder.current += increasePerSpace;
+            behaviour.current += increasePerSpace;
         }
     }
 }

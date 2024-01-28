@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Juggler", menuName ="Puzzles/Juggle")]
 public class JuggleSO : Puzzle
 {
-    public bool TimingBased = false;
-
     public int amountOfInputs;
     public Queue<KeyCode> keyInputs = new Queue<KeyCode>();
     public List<KeyCode> keys = new List<KeyCode>()
@@ -17,79 +15,54 @@ public class JuggleSO : Puzzle
     };
     public int wrongInputs;
 
-
-    public void update(PuzzleHolder holder)
+    public void update(JuggleBehaviour behaviour, PuzzleHolder holder)
     {
         if(keyInputs.Count <= 0)
         {
-            holder.onJuggleFinish.Invoke();
+            GameManager.instance.AddPoints(scoreOnSuccess);
+            GameManager.instance.Success();
             PuzzleManager.instance.FinishedPuzzle(holder);
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            CheckKey(holder, KeyCode.Z);
+            CheckKey(behaviour, KeyCode.Z);
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
-            CheckKey(holder, KeyCode.X);
+            CheckKey(behaviour, KeyCode.X);
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
-            CheckKey(holder, KeyCode.C);
+            CheckKey(behaviour, KeyCode.C);
         }
         else if (Input.anyKeyDown)
         {
-            CheckKey(holder);
+            CheckKey(behaviour);
         }
 
         if(wrongInputs >= 3)
         {
-            Debug.Log("Bad ending");
-            holder.onJuggleFinish.Invoke();
+            wrongInputs = 0;
             PuzzleManager.instance.FinishedPuzzle(holder);
         }
     }
 
-    void CheckKey(PuzzleHolder holder, KeyCode input = KeyCode.None)
+    void CheckKey(JuggleBehaviour behaviour, KeyCode input = KeyCode.None)
     {
-        if (!TimingBased)
+
+        if (input == keyInputs.Peek())
         {
-            if (input == keyInputs.Peek())
-            {
-                Debug.Log("The right key!!");
-                keyInputs.Dequeue();
-            }
-            else
-            {
-                //TODO: WRONG KEY FEEDBACK;
-                Debug.Log("NOT THE RIGHT KEY");
-                keyInputs.Dequeue();
-            }
-        
-            Destroy(holder.JuggleKeysUI_Fast.GetChild(0).gameObject);
+            keyInputs.Dequeue();
         }
         else
         {
-            if(holder.overlap.keyOverlap != null)
-            {
-                holder.overlap.keyOverlap.holder = holder;
-                if (input == holder.overlap.keyOverlap.key)
-                {
-                    holder.overlap.keyOverlap.PlayerPressed = true;
-                    Debug.Log("The right key!!");
-                }
-                else
-                {
-                    //TODO: WRONG KEY FEEDBACK;
-                    Debug.Log("NOT THE RIGHT KEY");
-                }
-            }
-            else
-            {
-                wrongInputs++;
-            }
+            //TODO: WRONG KEY FEEDBACK;
+            keyInputs.Dequeue();
         }
+        
+        Destroy(behaviour.JuggleKeysUI_Fast.GetChild(0).gameObject);
+        
     }
 
     public void SetInputs()

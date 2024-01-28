@@ -34,7 +34,6 @@ public class PuzzleManager : MonoBehaviour
             usedHolders.Add(puzzle, false);
         }
     }
-
     private void Start()
     {
         if(levelData != null)
@@ -42,31 +41,25 @@ public class PuzzleManager : MonoBehaviour
             Queue = StartCoroutine(LevelQueue());
         }
     }
-
     IEnumerator LevelQueue()
     {
         SpawnPuzzle();
-        levelData.puzzleQueue.Dequeue();
-        yield return new WaitForSeconds(Random.Range(8, 12));
-        if(levelData.puzzleQueue.Count > 0)
-        {
-            Queue = StartCoroutine(LevelQueue());
-        }
+        yield return new WaitForSeconds(Random.Range(3, 5));
+        Queue = StartCoroutine(LevelQueue());
+        
     }
 
     public void FinishedPuzzle(PuzzleHolder holder)
     {
-        puzzleFinish.Invoke();
+        puzzleFinish?.Invoke();
         usedHolders[holder] = false;
     }
-
     public void FinishedLevel()
     {
         StopCoroutine(Queue);
     }
     void SpawnPuzzle()
     {
-        Puzzle puzzle = levelData.puzzleQueue.Peek();
         List<PuzzleHolder> temp = new List<PuzzleHolder>();
         foreach (var item in usedHolders)
         {
@@ -75,8 +68,12 @@ public class PuzzleManager : MonoBehaviour
                 temp.Add(item.Key);
             }
         }
-        int random = Random.Range(0, temp.Count);
-        puzzleHolders[random].SetPuzzle(puzzle);
-        usedHolders[puzzleHolders[random]] = true;
+        if(temp.Count > 0)
+        {
+            Puzzle puzzle = levelData.puzzlesInLevel[Random.Range(0, levelData.puzzlesInLevel.Count)];
+            int random = Random.Range(0, temp.Count);
+            puzzleHolders[random].SetPuzzle(puzzle);
+            usedHolders[puzzleHolders[random]] = true;
+        }
     }
 }
